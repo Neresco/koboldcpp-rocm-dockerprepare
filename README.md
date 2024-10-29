@@ -1,3 +1,5 @@
+Still in testing
+
 Used with following https://github.com/kcvanderlinden/koboldcpp-rocm-docker
 Edit in Dockerfile:
 Added rocm Version 6.2.3 in Dockerfile
@@ -29,8 +31,8 @@ kobold:latest
 Place the config.json or example_config.json in the /models folder.
 /home/Username/models (This is the place where the models also need to be placed)
 
-Good Luck i hope it works for you too.
-Worked on 29.10.2024 on Xubuntu 24.04 with rocm 6.2 on host.
+
+First test NOT worked on 29.10.2024 on Xubuntu 24.04 with rocm 6.2 on host.
 
 
 ##### Original ([llama.cpp rocm port](https://github.com/ggerganov/llama.cpp/pull/1087), [llama.cpp commit](https://github.com/ggerganov/llama.cpp/commit/6bbc598a632560cb45dd2c51ad403bda8723b629)) by SlyEcho, YellowRoseCx, ardfork, funnbot, Engininja2, Kerfuffle, jammm, and jdecourval.
