@@ -12,7 +12,7 @@ commented
 (Building will be done in the easy_KCPP-ROCm_install.sh)
 
 added at the End to set right Docker Parameters for autostart with koboldcpp
-CMD ['/app/conda/envs/linux/bin/python' 'koboldcpp.py' '--config' '/models/config.json']
+CMD '/app/conda/envs/linux/bin/python' 'koboldcpp.py' '--config' '/models/config.json'
 
 Edited easy_KCPP-ROCm_install.sh
   git clone https://github.com/Neresco/koboldcpp-rocm-dockerprepare.git -b main --depth 1 && \
