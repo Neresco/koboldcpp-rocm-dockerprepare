@@ -1,3 +1,43 @@
+Used with following https://github.com/kcvanderlinden/koboldcpp-rocm-docker
+Edit in Dockerfile:
+Added rocm Version 6.2.3 in Dockerfile
+RUN wget -O tmp/rocm.deb https://repo.radeon.com/amdgpu-install/6.2.3/ubuntu/jammy/amdgpu-install_6.2.60203-1_all.deb  
+
+Edited install sh from (RUN "./koboldcpp.sh" dist) to
+RUN "./easy_KCPP-ROCm_install.sh" dist
+
+commented 
+#RUN make clean
+#RUN make LLAMA_HIPBLAS=1 -j8 
+(Building will be done in the easy_KCPP-ROCm_install.sh)
+
+added at the End to set right Docker Parameters for autostart with koboldcpp
+CMD ['/app/conda/envs/linux/bin/python' 'koboldcpp.py' '--config' '/models/config.json']
+
+Edited easy_KCPP-ROCm_install.sh
+  git clone https://github.com/Neresco/koboldcpp-rocm-dockerprepare.git -b main --depth 1 && \
+  cd "koboldcpp-rocm-dockerprepare" 
+For Navi 1 & 2 Use ENV HSA_OVERRIDE_GFX_VERSION=10.3.0
+For Navi 3 ENV HSA_OVERRIDE_GFX_VERSION=11.0.0 (or what works for you)
+(I Used ENV HSA_OVERRIDE_GFX_VERSION=10.3.5 (AMD 680M IGPU)
+
+Build with:
+docker build -t kobold:latest . ("kobold:latest" can be changed to "kobold:rocm6.2gfx1035" or anything else)
+But you edit the name in the following Docker run command.
+
+Remove the "--rm" when the Container should be permanent and editable (I have done so).
+
+docker run --rm -it -p 5001:5001 --device /dev/kfd --device /dev/dri \
+--mount type=bind,source="$HOME"/models,target=/models \
+kobold:latest
+
+Place the config.json or example_config.json in the /models folder.
+/home/Username/models (This is the place where the models also need to be placed)
+
+Good Luck i hope it works for you too.
+Worked on 29.10.2024 on Xubuntu 24.04 with rocm 6.2 on host.
+
+
 ##### Original ([llama.cpp rocm port](https://github.com/ggerganov/llama.cpp/pull/1087), [llama.cpp commit](https://github.com/ggerganov/llama.cpp/commit/6bbc598a632560cb45dd2c51ad403bda8723b629)) by SlyEcho, YellowRoseCx, ardfork, funnbot, Engininja2, Kerfuffle, jammm, and jdecourval.
 ##### Further modified and ported to KoboldCpp by YellowRoseCx.
 # koboldcpp-ROCM for AMD
