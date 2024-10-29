@@ -6,13 +6,8 @@ RUN wget -O tmp/rocm.deb https://repo.radeon.com/amdgpu-install/6.2.3/ubuntu/jam
 Edited install sh from (RUN "./koboldcpp.sh" dist) to
 RUN "./easy_KCPP-ROCm_install.sh" dist
 
-commented 
-#RUN make clean
-#RUN make LLAMA_HIPBLAS=1 -j8 
-(Building will be done in the easy_KCPP-ROCm_install.sh)
-
 added at the End to set right Docker Parameters for autostart with koboldcpp
-CMD '/app/conda/envs/linux/bin/python' 'koboldcpp.py' '--config' '/models/config.json'
+CMD ["/bin/bash" "/app/koboldcpp-rocm-dockerprepare/conda/envs/linux/bin/python" "koboldcpp.py" "--config" "/models/config.json"]
 
 Edited easy_KCPP-ROCm_install.sh
   git clone https://github.com/Neresco/koboldcpp-rocm-dockerprepare.git -b main --depth 1 && \
