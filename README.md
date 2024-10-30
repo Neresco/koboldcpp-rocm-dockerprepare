@@ -1,25 +1,28 @@
 Still in testing but works... sort of.
+Linux Only, testet with Xubuntu 24.04
+
 Dockerfile generates a 30GB Container and Downloads Kobolcpp-rocm
 You need to manually login into Container.
 Again compile koboldcpp-rocm.
 If not the start of kobolcpp end with error.
 
 One time use when rebuild/change Container in portainer is again standard Container and compiling of Koboldcpp needs to happen again.
-# Docker Build Command:
-# Go into the directory where kobold-rocm is cloned (or the Dockerfile is)
-# "sudo docker build -t kobold:latest ." or
-# "sudo docker buildx build --no-cache -t kobold:latest ."
+#Docker Build Command:
+#Go into the directory where kobold-rocm is cloned (or the Dockerfile is)
+#"sudo docker build -t kobold:latest ." or
+#"sudo docker buildx build --no-cache -t kobold:latest ."
 
 #Docker run command:
-# sudo docker run -p 5001:5001 --device /dev/kfd --device /dev/dri --mount type=bind,source="$HOME"/models,target=/models kobold:latest
+#sudo docker run -p 5001:5001 --device /dev/kfd --device /dev/dri --mount type=bind,source="$HOME"/models,target=/models kobold:latest
 
 #following needs to be run again in Container to prevent start errors from koboldcpp
-# /app/koboldcpp-rocm
-# make clean
-# make LLAMA_HIPBLAS=1 LLAMA_VULKAN=1 -j4 
+#/app/koboldcpp-rocm
+#make clean
+#make LLAMA_HIPBLAS=1 LLAMA_VULKAN=1 -j4 
 
 #Start in Container with 
-# "python koboldcpp.py --config /models/config.json" (Without the"")
+#"python koboldcpp.py --config /models/config.json" (Without the"")
+#Models and config File needs in Linux to be stored under /home/YourUsername/models
 
 
 
