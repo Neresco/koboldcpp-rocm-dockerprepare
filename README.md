@@ -6,7 +6,7 @@ You need to manually login into Container.
 Again compile koboldcpp-rocm.
 If not the start of kobolcpp end with error.
 
-Container is to be used rebuilding. 
+Container is to be used without rebuilding. 
 when rebuild/change Container in portainer, he is again standard Container and the compiling of Koboldcpp needs to happen again.
 #Docker Build Command:
 #Go into the directory where kobold-rocm is cloned (or the Dockerfile is)
