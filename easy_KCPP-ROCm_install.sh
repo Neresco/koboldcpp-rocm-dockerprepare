@@ -20,5 +20,4 @@ echo "Build will start shortly."
 countdown 5
 
 make clean && \
-make LLAMA_HIPBLAS=1 -j4 \
-exit 1
+make LLAMA_HIPBLAS=1 -j4
