@@ -9,12 +9,8 @@ function countdown {
   printf "\Building KoboldCPP...   \n"
 }
 
-if [ "$(basename "$PWD")" = "koboldcpp-rocm-dockerprepare" ]; then
-  echo "Already inside 'koboldcpp-rocm-dockerprepare' directory."
-else
   git clone https://github.com/Neresco/koboldcpp-rocm-dockerprepare.git -b main --depth 1 && \
-  cd "koboldcpp-rocm-dockerprepare" || exit 1
-fi
+  cd "koboldcpp-rocm-dockerprepare"
 
 echo "Build will start shortly."
 countdown 5
