@@ -14,19 +14,19 @@ when rebuild/change Container in portainer, he is again standard Container and t
 
 #Go into the directory where kobold-rocm is cloned (or the Dockerfile is)
 
-#"sudo docker build -t kobold:latest ." or
+#"sudo docker build -t kobold:latest ." (Without the"") or
 
-#"sudo docker buildx build --no-cache -t kobold:latest ."
+#"sudo docker buildx build --no-cache -t kobold:latest ." (Without the"")
 
 #Docker run command:
 
-#sudo docker run -p 5001:5001 --device /dev/kfd --device /dev/dri --mount type=bind,source="$HOME"/models,target=/models kobold:latest
+#"sudo docker run -p 5001:5001 --device /dev/kfd --device /dev/dri --mount type=bind,source="$HOME"/models,target=/models kobold:latest" (Without the"")
 
 #following needs to be run again in Container to prevent start errors from koboldcpp
 
-#/app/koboldcpp-rocm
-#make clean
-#make LLAMA_HIPBLAS=1 LLAMA_VULKAN=1 -j4 
+#Directory to start from "/app/koboldcpp-rocm" (Without the"")
+#"make clean" (Without the"")
+#"make LLAMA_HIPBLAS=1 LLAMA_VULKAN=1 -j4" (Without the"")
 
 #Start in Container with 
 
