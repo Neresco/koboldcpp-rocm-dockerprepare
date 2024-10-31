@@ -1,7 +1,11 @@
 Still in testing but works... sort of.
 Linux Only, testet with Xubuntu 24.04
+Example for Config.json
+https://github.com/Neresco/koboldcpp-rocm-dockerprepare/blob/main/config.json
+
 
 Dockerfile generates a 30GB Container and Downloads Kobolcpp-rocm
+https://github.com/Neresco/koboldcpp-rocm-dockerprepare/blob/main/Dockerfile
 You need to manually login into Container.
 Again compile koboldcpp-rocm.
 If not the start of kobolcpp end with error.
