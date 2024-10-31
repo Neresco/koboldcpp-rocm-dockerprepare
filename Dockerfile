@@ -15,7 +15,6 @@ RUN amdgpu-install --usecase=hip,rocm --no-dkms -yq
 EXPOSE 5001
 CMD ["/bin/bash"]
 
-FROM stage1 as stage2
 # RDNA2 GPU Override RX 6600 - 6900 XT
 # ENV HSA_OVERRIDE_GFX_VERSION=11.0.0 for RDNA3 RX 7600 - 7900XTX
 ENV HSA_OVERRIDE_GFX_VERSION=10.3.0
